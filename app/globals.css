@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fdfbf9;
+    --foreground: #1a1714;
+    --card: #ffffff;
+    --card-foreground: #1a1714;
+    --primary: #c46331;
+    --primary-foreground: #ffffff;
+    --secondary: #f4eee7;
+    --secondary-foreground: #2d2621;
+    --muted: #f4eee7;
+    --muted-foreground: #786f66;
+    --accent: #e59a68;
+    --accent-foreground: #ffffff;
+    --border: #e8e0d5;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #f4f4f6;
+    --card: #080808;
+    --card-foreground: #f4f4f6;
+    --primary: #c46331;
+    --primary-foreground: #ffffff;
+    --secondary: #0d0d0d;
+    --secondary-foreground: #f4f4f6;
+    --muted: #0a0a0a;
+    --muted-foreground: #9ca3af;
+    --accent: #f5d480;
+    --accent-foreground: #000000;
+    --border: #18181b;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* GPU Acceleration for silky 60/120fps motion */
+.smooth-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(196, 99, 49, 0.3);
+  border-radius: 9999px;
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 99, 49, 0.7);
+}
+
+/* Smooth Luxury Hover Lift */
+.hover-luxury-lift {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+.hover-luxury-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Tactile Micro-interaction Press */
+.luxury-btn-press {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease, background-color 0.3s ease;
+}
+.luxury-btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Image zoom transition */
+.image-zoom-container {
+  overflow: hidden;
+}
+.image-zoom-container img {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.image-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Luxury Glass Cards with True Z-Black Backdrop */
+.luxury-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 224, 213, 0.7);
+}
+.dark .luxury-glass {
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Shimmer sweep effect for buttons & promo highlights */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+.btn-luxury-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-luxury-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: none;
+}
+.btn-luxury-shimmer:hover::before {
+  animation: shimmerSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stagger Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* Scroll reveal helper classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Clean Google Translate Styling */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+#google_translate_element {
+  display: none !important;
+}
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.skiptranslate > iframe {
+  height: 0 !important;
+  border-style: none;
+  box-shadow: none;
+}
+
