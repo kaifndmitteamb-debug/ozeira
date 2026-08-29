@@ -27,8 +27,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
       if (stored) {
         setWishlistIds(JSON.parse(stored));
       } else {
-        // Initial sample items
-        setWishlistIds(['prod-1', 'prod-3']);
+        setWishlistIds([]);
       }
       setProducts(DataStore.getProducts());
     } catch (e) {
