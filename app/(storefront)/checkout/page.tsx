@@ -332,25 +332,25 @@ function CheckoutPageContent() {
       {/* Checkout Progress Stepper */}
       <div className="max-w-3xl mx-auto mb-10">
         <div className="flex items-center justify-between relative">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-stone-200 dark:bg-stone-800 -z-0" />
+          <div className="absolute left-0 top-[18px] -translate-y-1/2 h-0.5 w-full bg-stone-200 dark:bg-[#1a1a1a] z-0" />
           {[
             { step: 1, label: 'Address' },
             { step: 2, label: 'Delivery' },
             { step: 3, label: 'Payment' },
             { step: 4, label: 'Review' },
           ].map((s) => (
-            <div key={s.step} className="relative z-10 flex flex-col items-center bg-[#fdfbf9] dark:bg-stone-950 px-3">
+            <div key={s.step} className="relative z-10 flex flex-col items-center bg-[#fdfbf9] dark:bg-black px-4 rounded-full">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   currentStep >= s.step
-                    ? 'bg-[#c46331] text-white ring-4 ring-[#fdf8f4] dark:ring-stone-900'
-                    : 'bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400'
+                    ? 'bg-[#c46331] text-white shadow-md shadow-[#c46331]/25 ring-4 ring-[#fdfbf9] dark:ring-black'
+                    : 'bg-stone-200 dark:bg-[#141414] text-stone-500 dark:text-stone-400 border border-transparent dark:border-[#222222] ring-4 ring-[#fdfbf9] dark:ring-black'
                 }`}
               >
-                {currentStep > s.step ? <CheckCircle2 className="w-5 h-5" /> : s.step}
+                {currentStep > s.step ? <CheckCircle2 className="w-4 h-4 text-white" /> : s.step}
               </div>
               <span
-                className={`text-[11px] font-bold uppercase tracking-wider mt-1.5 ${
+                className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider mt-2 transition-colors ${
                   currentStep >= s.step ? 'text-stone-900 dark:text-stone-100' : 'text-stone-400 dark:text-stone-500'
                 }`}
               >

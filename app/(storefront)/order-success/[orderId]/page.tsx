@@ -144,8 +144,8 @@ export default function OrderSuccessPage() {
                           <div 
                             className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center relative z-10 transition-colors ${
                               isCompleted 
-                                ? 'bg-[#c46331] text-white ring-4 ring-white dark:ring-[#1c1a17]' 
-                                : 'bg-stone-200 dark:bg-stone-700 text-stone-400 ring-4 ring-white dark:ring-[#1c1a17]'
+                                ? 'bg-[#c46331] text-white ring-4 ring-white dark:ring-[#0a0a0a]' 
+                                : 'bg-stone-200 dark:bg-[#141414] text-stone-400 dark:text-stone-500 ring-4 ring-white dark:ring-[#0a0a0a]'
                             }`}
                           >
                             {isCompleted ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : <div className="w-2 h-2 rounded-full bg-current" />}
