@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { INITIAL_PRODUCTS, INITIAL_CATEGORIES } from '@/lib/data/initial-data';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase/client';
 
+export const dynamic = 'force-static';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
